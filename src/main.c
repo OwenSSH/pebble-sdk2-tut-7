@@ -37,11 +37,10 @@ uint16_t num_rows_callback(MenuLayer *menu_layer, uint16_t section_index, void *
 	return 7;
 }
 
-void select_click_callback(ClickRecognizerRef recognizer, void *context)
+void select_click_callback(MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context)
 {
 	//Get which row
-	MenuIndex index = menu_layer_get_selected_index(menu_layer);
-	int which = index.row;
+	int which = cell_index->row;
 	
 	//The array that will hold the on/off vibration times
 	uint32_t segments[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
